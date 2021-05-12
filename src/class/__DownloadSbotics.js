@@ -2,6 +2,7 @@ var before = new Date().getSeconds();
 var GithubContent = require("github-content");
 const homeDir = require("os").homedir();
 const fs = require("fs-extra");
+const { GetConfig, SetConfigs } = require("./utils/configs");
 const { Save } = require("SaveFiles");
 
 var gc = new GithubContent({
