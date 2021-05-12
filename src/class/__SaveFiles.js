@@ -6,4 +6,5 @@ const Save = (path, content) => {
   });
 };
 
-exports.Save = Save;
+// exports.Save = Save;
+export { Save };

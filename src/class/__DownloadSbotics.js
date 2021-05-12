@@ -2,10 +2,8 @@ var before = new Date().getSeconds();
 var GithubContent = require("github-content");
 const homeDir = require("os").homedir();
 const fs = require("fs-extra");
-const { GetConfig, SetConfigs } = require("file://" +
-  __dirname +
-  "/src/class/utils/configs");
-const { Save } = require("file://" + __dirname + "/src/class/__SaveFiles.js");
+
+import { Save } from "./__SaveFiles.js";
 
 var gc = new GithubContent({
   owner: "Txiag",
@@ -27,25 +25,25 @@ const githubDownload = async (pathDownload) => {
   });
 };
 
-// const sBoticsDownload = () => {
-//   const download = [
-//     // "W32/sBotics_Data/StreamingAssets/Addons/BlockEduc.exepackage.json",
-//     // "W32/sBotics_Data/StreamingAssets/Addons/BlockEduc.exe",
-//     // "W32/sBotics_Data/StreamingAssets/ColorTheme.json.zip",
-//     "W32/UnityPlayer.dll",
-//     // "W32/sBotics.exe",
-//     "W32/sBotics_Data/Managed/System.Data.dll",
-//     "W32/sBotics_Data/Managed/System.Windows.Forms.dll",
-//     "W32/sBotics_Data/Managed/System.Security.dll",
-//     "W32/sBotics_Data/Managed/System.Transactions.dll",
-//     "W32/sBotics_Data/Managed/System.Web.dll",
-//   ];
+const sBoticsDownload = () => {
+  const download = [
+    // "W32/sBotics_Data/StreamingAssets/Addons/BlockEduc.exepackage.json",
+    // "W32/sBotics_Data/StreamingAssets/Addons/BlockEduc.exe",
+    // "W32/sBotics_Data/StreamingAssets/ColorTheme.json.zip",
+    "W32/UnityPlayer.dll",
+    // "W32/sBotics.exe",
+    "W32/sBotics_Data/Managed/System.Data.dll",
+    "W32/sBotics_Data/Managed/System.Windows.Forms.dll",
+    "W32/sBotics_Data/Managed/System.Security.dll",
+    "W32/sBotics_Data/Managed/System.Transactions.dll",
+    "W32/sBotics_Data/Managed/System.Web.dll",
+  ];
 
-//   download.forEach((element) => {
-//     (async () => {
-//       await githubDownload(element);
-//     })();
-//   });
-// };
+  download.forEach((element) => {
+    (async () => {
+      await githubDownload(element);
+    })();
+  });
+};
 
-// sBoticsDownload();
+sBoticsDownload();

@@ -1,8 +1,6 @@
 const { app, BrowserWindow } = require("electron");
 let window;
 
-const { Save } = require("./src/class/__SaveFiles");
-
 app.whenReady().then(() => {
   window = new BrowserWindow({
     titleBarStyle: "hiddenInset",
@@ -12,6 +10,7 @@ app.whenReady().then(() => {
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
+      enableRemoteModule: true,
     },
   });
   window.loadURL("file://" + __dirname + "/src/index.html");
