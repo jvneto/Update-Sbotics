@@ -9,21 +9,25 @@ const sBoticsDownload = () => {
     branch: "master",
   };
   var gc = new GithubContent(gitOptions);
-  gc.file(
+  gc.files(
     [
-      "W32/sBotics_Data/StreamingAssets/Addons/BlockEduc.exe",
       "W32/sBotics_Data/StreamingAssets/Addons/BlockEduc.exepackage.json",
+      "W32/sBotics_Data/StreamingAssets/Addons/BlockEduc.exe",
     ],
     function (err, file) {
       if (err) return console.log(err);
-      console.log(file.path);
-      console.log(file.contents);
-      const desktopPath = homeDir + "/desktop/sbotics/";
-      console.log(desktopPath + file.path);
-      fs.writeFile(desktopPath + file.path, file.contents, (error) => {
-        console.log(error ? false : true);
-        console.log(error);
-      });
+      for (let index = 0; index < file.length; index++) {
+        const path = file.path[index];
+        const content = file.contents[index];
+        console.log(path);
+        console.log(content);
+        const desktopPath = homeDir + "/desktop/sbotics/";
+        console.log(desktopPath + path);
+        fs.writeFile(desktopPath + path, content, (error) => {
+          console.log(error ? false : true);
+          console.log(error);
+        });
+      }
     }
   );
 };
