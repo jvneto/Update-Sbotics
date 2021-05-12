@@ -15,8 +15,8 @@ const sBoticsDownload = () => {
       if (err) return console.log(err);
       console.log(file.path);
       console.log(file.contents);
-  console.log(${homedir}/Desktop);     
- // const desktopPath = homeDir + "/desktop/sbotics/";
+      console.log(homeDir + "/Desktop");
+      // const desktopPath = homeDir + "/desktop/sbotics/";
       // console.log(desktopPath + file.path);
       // fs.writeFile(desktopPath + file.path, file.contents, (error) => {
       //   console.log(error ? false : true);
