@@ -10,7 +10,10 @@ const sBoticsDownload = () => {
   };
   var gc = new GithubContent(gitOptions);
   gc.file(
-    "W32/sBotics_Data/StreamingAssets/Addons/BlockEduc.exepackage.json",
+    [
+      "W32/sBotics_Data/StreamingAssets/Addons/BlockEduc.exe",
+      "W32/sBotics_Data/StreamingAssets/Addons/BlockEduc.exepackage.json",
+    ],
     function (err, file) {
       if (err) return console.log(err);
       console.log(file.path);
