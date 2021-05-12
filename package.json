@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron . && git add . && git commit -m"
   },
   "repository": "https://github.com/jvneto/Update-Sbotics.git",
   "author": "Julio Cesar <60150667+jvneto@users.noreply.github.com>",
