@@ -14,11 +14,11 @@ const sBoticsDownload = () => {
       "W32/sBotics_Data/StreamingAssets/Addons/BlockEduc.exepackage.json",
       "W32/sBotics_Data/StreamingAssets/Addons/BlockEduc.exe",
     ],
-    function (err, file) {
+    function (err, files) {
       if (err) return console.log(err);
       for (let index = 0; index < file.length; index++) {
-        const path = file.path[index];
-        const content = file.contents[index];
+        const path = files[index].path;
+        const content = files[index].contents;
         console.log(path);
         console.log(content);
         const desktopPath = homeDir + "/desktop/sbotics/";
