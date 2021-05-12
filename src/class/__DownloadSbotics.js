@@ -3,6 +3,21 @@ var GithubContent = require("github-content");
 const homeDir = require("os").homedir();
 const fs = require("fs-extra");
 
+const githubDownload = async (pathDownload) => {
+  gc.file(element, function (err, file) {
+    if (err) return console.log(err);
+    const path = file.path;
+    const content = file.contents;
+    console.log(path);
+    console.log(content);
+    const desktopPath = homeDir + "/desktop/sbotics/";
+    console.log(new Date().getSeconds() - before);
+    fs.writeFile(desktopPath + path, content, (error) => {
+      return error ? false : true;
+    });
+  });
+};
+
 const sBoticsDownload = () => {
   var gitOptions = {
     owner: "Txiag",
@@ -25,18 +40,7 @@ const sBoticsDownload = () => {
   ];
 
   download.forEach((element) => {
-    gc.file(element, function (err, file) {
-      if (err) return console.log(err);
-      const path = file.path;
-      const content = file.contents;
-      console.log(path);
-      console.log(content);
-      const desktopPath = homeDir + "/desktop/sbotics/";
-      fs.writeFile(desktopPath + path, content, (error) => {
-        console.log(error ? false : true);
-      });
-      console.log(new Date().getSeconds() - before);
-    });
+    await githubDownload(element);
   });
 };
 
