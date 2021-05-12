@@ -2,7 +2,7 @@ var before = new Date().getSeconds();
 var GithubContent = require("github-content");
 const homeDir = require("os").homedir();
 const fs = require("fs-extra");
-const { Save } = require("__SaveFiles");
+const { Save } = require("SaveFiles");
 
 var gc = new GithubContent({
   owner: "Txiag",
