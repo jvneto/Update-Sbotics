@@ -1,4 +1,5 @@
 var GithubContent = require("github-content");
+const homeDir = require("os").homedir();
 
 const sBoticsDownload = () => {
   var gitOptions = {
@@ -13,6 +14,7 @@ const sBoticsDownload = () => {
       if (err) return console.log(err);
       console.log(file.path);
       console.log(file.contents);
+      console.log(homeDir);
     }
   );
 };
