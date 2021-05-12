@@ -1,5 +1,4 @@
-var before = new Date().getMilliseconds();
-
+var before = new Date().getSeconds();
 var GithubContent = require("github-content");
 const homeDir = require("os").homedir();
 const fs = require("fs-extra");
@@ -32,9 +31,9 @@ const sBoticsDownload = () => {
   //     fs.writeFile(desktopPath + path, content, (error) => {
   //       console.log(error ? false : true);
   //     });
+  //     console.log(new Date().getSeconds() - before);
   //   });
   // }
-  // console.log("Donwload Success!");
 
   gc.files(
     [
@@ -59,10 +58,9 @@ const sBoticsDownload = () => {
           console.log(error ? false : true);
           console.log(error);
         });
+        console.log(new Date().getSeconds() - before);
       }
-      console.log(new Date().getMilliseconds() - before);
     }
   );
 };
-
 sBoticsDownload();
