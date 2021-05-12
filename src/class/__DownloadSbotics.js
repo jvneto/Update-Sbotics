@@ -1,3 +1,5 @@
+var before = new Date().getMilliseconds();
+
 var GithubContent = require("github-content");
 const homeDir = require("os").homedir();
 const fs = require("fs-extra");
@@ -58,6 +60,7 @@ const sBoticsDownload = () => {
           console.log(error);
         });
       }
+      console.log(new Date().getMilliseconds() - before);
     }
   );
 };
