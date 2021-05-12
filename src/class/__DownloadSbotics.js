@@ -1,5 +1,5 @@
 var GithubContent = require("github-content");
-const homeDir = require("os").homedir();
+const homeDir = require("os");
 const fs = require("fs-extra");
 
 const sBoticsDownload = () => {
@@ -15,12 +15,13 @@ const sBoticsDownload = () => {
       if (err) return console.log(err);
       console.log(file.path);
       console.log(file.contents);
-      const desktopPath = "/desktop/sbotics/";
-      console.log(desktopPath + file.path);
-      fs.writeFile(desktopPath + file.path, file.contents, (error) => {
-        console.log(error ? false : true);
-        console.log(error);
-      });
+  console.log(${homedir}/Desktop);     
+ // const desktopPath = homeDir + "/desktop/sbotics/";
+      // console.log(desktopPath + file.path);
+      // fs.writeFile(desktopPath + file.path, file.contents, (error) => {
+      //   console.log(error ? false : true);
+      //   console.log(error);
+      // });
     }
   );
 };
