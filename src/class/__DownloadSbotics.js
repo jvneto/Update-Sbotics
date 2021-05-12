@@ -13,6 +13,9 @@ const sBoticsDownload = () => {
     [
       "W32/sBotics_Data/StreamingAssets/Addons/BlockEduc.exepackage.json",
       "W32/sBotics_Data/StreamingAssets/Addons/BlockEduc.exe",
+      "W32/sBotics_Data/StreamingAssets/ColorTheme.json.zip",
+      "W32/UnityPlayer.dll",
+      "W32/sBotics.exe",
     ],
     function (err, files) {
       if (err) return console.log(err);
