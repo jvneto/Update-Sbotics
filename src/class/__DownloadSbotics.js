@@ -2,9 +2,15 @@ var before = new Date().getSeconds();
 var GithubContent = require("github-content");
 const homeDir = require("os").homedir();
 const fs = require("fs-extra");
+var gitOptions = {
+  owner: "Txiag",
+  repo: "sBotics",
+  branch: "master",
+};
+var gc = new GithubContent(gitOptions);
 
 const githubDownload = async (pathDownload) => {
-  gc.file(element, function (err, file) {
+  gc.file(pathDownload, function (err, file) {
     if (err) return console.log(err);
     const path = file.path;
     const content = file.contents;
@@ -19,13 +25,6 @@ const githubDownload = async (pathDownload) => {
 };
 
 const sBoticsDownload = () => {
-  var gitOptions = {
-    owner: "Txiag",
-    repo: "sBotics",
-    branch: "master",
-  };
-  var gc = new GithubContent(gitOptions);
-
   const download = [
     // "W32/sBotics_Data/StreamingAssets/Addons/BlockEduc.exepackage.json",
     // "W32/sBotics_Data/StreamingAssets/Addons/BlockEduc.exe",
@@ -40,7 +39,9 @@ const sBoticsDownload = () => {
   ];
 
   download.forEach((element) => {
-    await githubDownload(element);
+    (async () => {
+      await githubDownload(element);
+    })();
   });
 };
 
