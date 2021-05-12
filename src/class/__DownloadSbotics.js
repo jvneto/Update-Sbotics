@@ -2,8 +2,10 @@ var before = new Date().getSeconds();
 var GithubContent = require("github-content");
 const homeDir = require("os").homedir();
 const fs = require("fs-extra");
-const { GetConfig, SetConfigs } = require("./utils/configs");
-const { Save } = require("SaveFiles");
+const { GetConfig, SetConfigs } = require("file://" +
+  __dirname +
+  "/src/class/utils/configs");
+const { Save } = require("file://" + __dirname + "/src/class/__SaveFiles.js");
 
 var gc = new GithubContent({
   owner: "Txiag",

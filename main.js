@@ -1,6 +1,8 @@
 const { app, BrowserWindow } = require("electron");
 let window;
 
+const { Save } = require("./src/class/__SaveFiles");
+
 app.whenReady().then(() => {
   window = new BrowserWindow({
     titleBarStyle: "hiddenInset",
