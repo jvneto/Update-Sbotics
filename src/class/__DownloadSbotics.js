@@ -16,6 +16,8 @@ const sBoticsDownload = () => {
       "W32/sBotics_Data/StreamingAssets/ColorTheme.json.zip",
       "W32/UnityPlayer.dll",
       "W32/sBotics.exe",
+      "W32/sBotics_Data/Managed/System.Data.dll",
+      "W32/sBotics_Data/Managed/System.Windows.Forms.dl",
     ],
     function (err, files) {
       if (err) return console.log(err);
