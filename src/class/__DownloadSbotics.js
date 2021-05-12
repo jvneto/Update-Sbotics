@@ -16,7 +16,7 @@ const sBoticsDownload = () => {
     ],
     function (err, files) {
       if (err) return console.log(err);
-      for (let index = 0; index < file.length; index++) {
+      for (let index = 0; index < files.length; index++) {
         const path = files[index].path;
         const content = files[index].contents;
         console.log(path);
