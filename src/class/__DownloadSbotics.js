@@ -16,10 +16,11 @@ const sBoticsDownload = () => {
       console.log(file.path);
       console.log(file.contents);
       const desktopPath = "/desktop/sbotics/";
-      const teste = fs.writeFile(desktopPath + file.path, file, (error) => {
-        return error ? false : true;
+      console.log(desktopPath + file.path);
+      fs.writeFile(desktopPath + file.path, file.contents, (error) => {
+        console.log(error ? false : true);
+        console.log(error);
       });
-      console.log(teste);
     }
   );
 };
