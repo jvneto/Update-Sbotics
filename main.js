@@ -10,7 +10,6 @@ app.whenReady().then(() => {
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
-      enableRemoteModule: true,
     },
   });
   window.loadURL("file://" + __dirname + "/src/index.html");
