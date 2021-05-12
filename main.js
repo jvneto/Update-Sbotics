@@ -1,4 +1,4 @@
-const { app, BrowserWindow, TouchBar } = require("electron");
+const { app, BrowserWindow } = require("electron");
 let window;
 
 app.whenReady().then(() => {
