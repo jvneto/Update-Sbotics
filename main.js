@@ -7,7 +7,12 @@ app.whenReady().then(() => {
     width: 200,
     height: 200,
     backgroundColor: "#000",
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false,
+      enableRemoteModule: true,
+    },
   });
-  // window.loadURL("about:blank");
   window.loadURL("file://" + __dirname + "/src/index.html");
+  window.webContents.openDevTools();
 });
