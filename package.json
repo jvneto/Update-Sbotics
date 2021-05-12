@@ -1,0 +1,15 @@
+{
+  "name": "update_sbotics",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "https://github.com/jvneto/Update-Sbotics.git",
+  "author": "Julio Cesar <60150667+jvneto@users.noreply.github.com>",
+  "license": "MIT",
+  "dependencies": {
+    "electron": "^12.0.7",
+    "github-content": "^1.0.1"
+  }
+}
