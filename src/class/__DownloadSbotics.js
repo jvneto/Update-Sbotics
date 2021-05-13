@@ -1,9 +1,7 @@
-var before = new Date().getSeconds();
-var GithubContent = require("github-content");
+var GithubContent = require("github-content"); // OK
 const homeDir = require("os").homedir();
-const fs = require("fs-extra");
-
-import { Save } from "./__SaveFiles.js";
+import { Save } from "../utils/SaveFiles.js";
+import { GitDownload } from "../utils/DownloadGithub.js";
 
 var gc = new GithubContent({
   owner: "Txiag",
@@ -12,17 +10,9 @@ var gc = new GithubContent({
 });
 
 const githubDownload = async (pathDownload) => {
-  gc.file(pathDownload, function (err, file) {
-    if (err) return console.log(err);
-    const path = file.path;
-    const content = file.contents;
-    console.log(path);
-    console.log(content);
-    const desktopPath = homeDir + "/desktop/sbotics/" + path;
-    const save = Save(desktopPath, content);
-    console.log(save);
-    console.log(new Date().getSeconds() - before);
-  });
+  // var gitDownload = GitDownload(pathDownload);
+  console.log(pathDownload);
+  console.log(GitDownload(pathDownload));
 };
 
 const sBoticsDownload = () => {
