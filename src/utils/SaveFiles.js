@@ -7,12 +7,12 @@ const fs = require("fs-extra");
 //     });
 //   };
 // };
-export const Save = (path, data) => {
+const Save = (path, data) => {
   new Promise((resolve, reject) => {
     fs.writeFile(path, data, (err) => {
       if (err) reject(err);
-      else resolve();
+      else resolve(true);
     });
   });
 };
-// export { Save };
+export { Save };
