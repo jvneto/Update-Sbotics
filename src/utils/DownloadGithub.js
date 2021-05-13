@@ -17,4 +17,5 @@ const GitDownload = async (downloadPath) => {
   });
 };
 
-export { GitDownload };
+// export { GitDownload };
+module.exports.GitDownload = GitDownload; 
