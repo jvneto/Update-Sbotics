@@ -30,10 +30,7 @@ var gc = new GithubContent({
 
 const run = async () => {
   const desktopPath = homeDir + "/desktop/sbotics/";
-  const res = await Save(
-    desktopPath + "teste.txt",
-    "teste teste teste teste teste teste"
-  );
+  const res = await Save(desktopPath, "teste teste teste teste teste teste");
   console.log(res);
 };
 

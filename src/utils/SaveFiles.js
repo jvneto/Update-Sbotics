@@ -8,9 +8,9 @@ const fs = require("fs-extra");
 //   };
 // };
 const Save = (path, data) => {
-  new Promise((resolve, reject) => {
+  return new Promise((resolve, reject) => {
     fs.writeFile(path, data, (err) => {
-      if (err) reject(err);
+      if (err) reject(false);
       else resolve(true);
     });
   });
