@@ -6,7 +6,7 @@ const gitContent = new GithubContent({
   branch: "master",
 });
 
-const GitDownload = (downloadPath) => {
+function GitDownload(downloadPath) {
   gitContent.file(downloadPath, function (err, file) {
     if (err) return false;
     return file.contents;
@@ -16,6 +16,6 @@ const GitDownload = (downloadPath) => {
     // var save = Save(desktopPath, content);
     // console.log(save);
   });
-};
+}
 
 export { GitDownload };

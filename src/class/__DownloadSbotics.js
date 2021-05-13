@@ -1,7 +1,9 @@
 var GithubContent = require("github-content"); // OK
 const homeDir = require("os").homedir();
 import { Save } from "../utils/SaveFiles.js";
-import { GitDownload } from "../utils/DownloadGithub.js";
+// import { GitDownload } from "../utils/DownloadGithub.js";
+
+const { GitDonwload } = require("../utils/DownloadGithub");
 
 var gc = new GithubContent({
   owner: "Txiag",
@@ -12,7 +14,7 @@ var gc = new GithubContent({
 const githubDownload = async (pathDownload) => {
   // var gitDownload = GitDownload(pathDownload);
   console.log(pathDownload);
-  console.log(GitDownload(pathDownload));
+  console.log(GitDonwload(pathDownload));
 };
 
 const sBoticsDownload = () => {
