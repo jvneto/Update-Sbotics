@@ -1,6 +1,6 @@
 var GithubContent = require("github-content");
 
-const gitContent = new GithubContent({
+var gitContent = new GithubContent({
   owner: "Txiagg",
   repo: "sBoticssss",
   branch: "master",
