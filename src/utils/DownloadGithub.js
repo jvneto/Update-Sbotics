@@ -1,21 +1,21 @@
 var GithubContent = require("github-content");
 
 const gitContent = new GithubContent({
-  owner: "Txiag",
-  repo: "sBotics",
+  owner: "Txiagg",
+  repo: "sBoticssss",
   branch: "master",
 });
 
 const GitDownload = async (downloadPath) => {
-  // gitContent.file(downloadPath, function (err, file) {
-  //   if (err) returnfalse);
-  //   // const path = file.path;
-  //   // const content = file.contents;
-  //   // const desktopPath = homeDir + "/desktop/sbotics/" + path;
-  //   // var save = Save(desktopPath, content);
-  //   // console.log(save);
-  // });
-  return "Olá Mundo!";
+  return new Promise((resolve, reject) => {
+    gitContent.file(downloadPath, (err, file) => {
+      console.log(err);
+      console.log(file);
+      // if (err) reject(false);
+      // console.log("err" + err);
+      // resolve(file.contents);
+    });
+  });
 };
 
 export { GitDownload };

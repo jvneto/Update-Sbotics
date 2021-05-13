@@ -9,30 +9,14 @@ var gc = new GithubContent({
   branch: "master",
 });
 
-// const githubDownload = async (pathDownload) => {
-//   // var gitDownload = GitDownload(pathDownload);
-//   // var teste = await GitDownload(pathDownload);
-//   // console.log(pathDownload);
-//   // console.log(teste);
-//   const desktopPath = homeDir + "/desktop/sbotics/";
-//   const res = await Save(desktopPath + "teste.txt", "Ola Mundo!");
-//   console.log(res);
-//   // await gc.file(pathDownload, async (err, file) => {
-//   //   // if (err) returnfalse);
-//   //   const path = file.path;
-//   //   const content = file.contents;
-//   //   const desktopPath = homeDir + "/desktop/sbotics/" + path;
-
-//   //   const res = await Save(desktopPath, content);
-//   //   console.log(res);
-//   // });
-// };
-
-const run = async () => {
-  const desktopPath = homeDir + "/desktop/sbotics/";
-  const res = await Save(desktopPath, "teste teste teste teste teste teste");
-  console.log(res);
+const GitDownloadSave = async (pathDownload) => {
+  const gitContent = await GitDownload(pathDownload);
+  console.log(gitContent);
+  const desktopPath = homeDir + "/desktop/sbotics/" + pathDownload;
+  const res = await Save(desktopPath, gitContent);
+  return res;
 };
+
 
 const sBoticsDownload = () => {
   const download = [
@@ -47,10 +31,11 @@ const sBoticsDownload = () => {
     "W32/sBotics_Data/Managed/System.Transactions.dll",
     "W32/sBotics_Data/Managed/System.Web.dll",
   ];
-  run();
-  // download.forEach((element) => {
-  //   githubDownload(element);
-  // });
-};;
+  download.forEach((element) => {
+    (async () => {
+      console.log(await GitDownloadSave(element));
+    })();
+  });
+};
 
 sBoticsDownload();
