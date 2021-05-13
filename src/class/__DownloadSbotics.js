@@ -9,14 +9,17 @@ const options = {
   branch: "origin",
 };
 const gc = new GithubContent(options);
-gc.file("W32/sBotics_Data/StreamingAssets/ColorTheme.json.zip", (err, file) => {
-  console.log(err);
-  console.log(file);
-  // if (err) reject(false);
-  // console.log("err" + err);
-  // resolve(file.contents);
-});
-
+gc.file(
+  "W32/sBotics_Data/StreamingAssets/ColorTheme.json.zip",
+  (err, file) => {
+    // if (err) reject(false);
+    // console.log("err" + err);
+    // resolve(file.contents);
+    console.log(err);
+    console.log(file);
+    console.log(file.data.body);
+  }
+);
 
 // var gc = new GithubContent({
 //   owner: "jvneto",
