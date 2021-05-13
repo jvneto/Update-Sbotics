@@ -19,9 +19,7 @@ const githubDownload = async (pathDownload) => {
     const path = file.path;
     const content = file.contents;
     const desktopPath = homeDir + "/desktop/sbotics/" + path;
-    async () => {
-      console.log(await Save(desktopPath, content));
-    };
+    console.log(Save(desktopPath, content));
   });
 };
 

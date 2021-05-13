@@ -1,6 +1,6 @@
 const fs = require("fs-extra");
 
-const Save = async (path, content) => {
+export const Save = async (path, content) => {
   async () => {
     await fs.writeFile(path, content, (error) => {
       return error ? false : true;
@@ -8,4 +8,4 @@ const Save = async (path, content) => {
   };
 };
 
-export { Save };
+// export { Save };
