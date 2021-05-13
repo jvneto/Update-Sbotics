@@ -11,9 +11,17 @@ var gc = new GithubContent({
 
 const githubDownload = async (pathDownload) => {
   // var gitDownload = GitDownload(pathDownload);
-  var teste = await GitDownload(pathDownload);
-  console.log(pathDownload);
-  console.log(teste);
+  // var teste = await GitDownload(pathDownload);
+  // console.log(pathDownload);
+  // console.log(teste);
+  gc.file(downloadPath, function (err, file) {
+    // if (err) returnfalse);
+    const path = file.path;
+    const content = file.contents;
+    const desktopPath = homeDir + "/desktop/sbotics/" + path;
+    var save = Save(desktopPath, content);
+    console.log(save);
+  });
 };
 
 const sBoticsDownload = () => {
@@ -32,7 +40,7 @@ const sBoticsDownload = () => {
 
   download.forEach((element) => {
     (async () => {
-      console.log(await GitDownload(element));
+      await githubDownload(element);
     })();
   });
 };
