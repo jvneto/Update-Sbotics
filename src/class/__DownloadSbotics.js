@@ -20,7 +20,7 @@ const GitDownloadSave = async (pathDownload) => {
 
 const sBoticsDownload = () => {
   const download = [
-    "W32/sBotics_Data/StreamingAssets/Addons/BlockEduc.exepackage.json",
+    "W32/sBotics_Data/SasdasdtreamingAssets/Addons/BlockEduc.exepackage.json",
     "W32/sBotics_Data/StreamingAssets/Addons/BlockEduc.exe",
     "W32/sBotics_Data/StreamingAssets/ColorTheme.json.zip",
     "W32/UnityPlayer.dll",
