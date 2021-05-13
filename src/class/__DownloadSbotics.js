@@ -4,9 +4,9 @@ import { Save } from "../utils/SaveFiles.js";
 import { GitDownload } from "../utils/DownloadGithub.js";
 
 const options = {
-  owner: "jvneto",
+  owner: "Txiag",
   repo: "sbotics",
-  branch: "origin",
+  branch: "master",
 };
 const gc = new GithubContent(options);
 gc.file(
