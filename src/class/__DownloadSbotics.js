@@ -14,12 +14,14 @@ const githubDownload = async (pathDownload) => {
   // var teste = await GitDownload(pathDownload);
   // console.log(pathDownload);
   // console.log(teste);
-  gc.file(pathDownload, function (err, file) {
+  gc.file(pathDownload, async (err, file) => {
     // if (err) returnfalse);
     const path = file.path;
     const content = file.contents;
     const desktopPath = homeDir + "/desktop/sbotics/" + path;
-    console.log(Save(desktopPath, content));
+
+    const res = await Save(desktopPath, content);
+    console.log(res);
   });
 };
 
