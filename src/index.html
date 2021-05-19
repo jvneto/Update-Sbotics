@@ -7,8 +7,18 @@
     <title>Testing Download</title>
   </head>
   <body>
-    <h1 style="color: white">Tudo Ok</h1>
-   
-    <script type="module" src="./class/__DownloadSbotics.js"></script>
+    <h1 style="color: white; font-size: 15px">
+      Tudo Ok - <span id="version"></span>
+    </h1>
+    <button onclick="location.reload()">Restart</button>
+    <script type="module" src="./class/__DownloadSboticsBeta.js"></script>
+    <script>
+      var version = localStorage.getItem("version");
+      const oldVersion = 150;
+      if (version == 0) version = oldVersion;
+      version = parseInt(version) + 1;
+      localStorage.setItem("version", version);
+      document.getElementById("version").innerHTML = "1.0." + version;
+    </script>
   </body>
 </html>

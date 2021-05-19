@@ -11,6 +11,7 @@
   "dependencies": {
     "electron": "^12.0.7",
     "fs-extra": "^10.0.0",
-    "github-content": "^1.0.1"
+    "github-content": "^1.0.1",
+    "sbotics-downloader": "^1.1.0"
   }
 }
