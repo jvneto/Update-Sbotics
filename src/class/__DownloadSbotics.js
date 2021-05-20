@@ -1,69 +1,61 @@
-var GithubContent = require("github-content"); // OK
+var sBoticsDownloader = require("sbotics-downloader");
 const homeDir = require("os").homedir();
-import { Save } from "../utils/SaveFiles.js";
-import { GitDownload } from "../utils/DownloadGithub.js";
+import {
+  SizeCreate,
+  Create,
+  Update,
+  PercentageView,
+} from "../utils/ProgressBar.js";
 
-const options = {
-  owner: "Txiag",
-  repo: "sbotics",
+var JSONDownloadSize = 0;
+var JSONDownloadID = 1;
+var JSONDonwloadID_ = 0;
+const sbotics = new sBoticsDownloader({
+  user: "sBotics",
+  repository: "sBoticsBuilds",
   branch: "master",
+  externalDownload: true,
+  detailedAnswer: true,
+});
+
+const GitDownloadSave = async (path, name, prefix) => {
+  const pathDownload = prefix + path + name;
+
+  await sbotics.file(pathDownload, { savePath: path + name }, (err, resp) => {
+    JSONDonwloadID_ = JSONDownloadID++;
+    Create(
+      SizeCreate(JSONDownloadSize),
+      "warning",
+      JSONDownloadSize,
+      JSONDonwloadID_
+    );
+    if (err) return Update(JSONDonwloadID_, "danger");
+
+    PercentageView(
+      {
+        progressID: JSONDonwloadID_,
+        size: SizeCreate(JSONDownloadSize),
+      },
+      { elementView: true, elementInner: "TextProgressBar" }
+    );
+
+    Update(JSONDonwloadID_, "success");
+  });
 };
-const gc = new GithubContent(options);
-gc.file(
-  "W32/sBotics_Data/StreamingAssets/ColorTheme.json.zip",
-  (err, file) => {
-    // if (err) reject(false);
-    // console.log("err" + err);
-    // resolve(file.contents);
-    console.log(err);
-    console.log(file);
-    console.log(file.data.body);
-  }
-);
 
-// var gc = new GithubContent({
-//   owner: "jvneto",
-//   repo: "sbotics",
-//   branch: "origin",
-// });
-// const gc = new GithubContent(options);
-// const GitDownloadSave = (pathDownload) => {
-//   // const gitContent = await GitDownload(pathDownload);
-//   // console.log(gitContent);
-//   // const desktopPath = homeDir + "/desktop/sbotics/" + pathDownload;
-//   // const res = await Save(desktopPath, gitContent);
-//   // return res;
-//   gc.file(
-//     "W32/sBotics_Data/StreamingAssets/ColorTheme.json.zip",
-//     (err, file) => {
-//       console.log(err);
-//       console.log(file);
-//       // if (err) reject(false);
-//       // console.log("err" + err);
-//       // resolve(file.contents);
-//     }
-//   );
-// };
+const sBoticsDownload = () => {
+  console.log("Iniciando");
 
-// const sBoticsDownload = () => {
-//   const download = [
-//     "W32/sBotics_Data/SasdasdtreamingAssets/Addons/BlockEduc.exepackage.json",
-//     "W32/sBotics_Data/StreamingAssets/Addons/BlockEduc.exe",
-//     "W32/sBotics_Data/StreamingAssets/ColorTheme.json.zip",
-//     "W32/UnityPlayer.dll",
-//     "W32/sBotics.exe",
-//     "W32/sBotics_Data/Managed/System.Data.dll",
-//     "W32/sBotics_Data/Managed/System.Windows.Forms.dll",
-//     "W32/sBotics_Data/Managed/System.Security.dll",
-//     "W32/sBotics_Data/Managed/System.Transactions.dll",
-//     "W32/sBotics_Data/Managed/System.Web.dll",
-//   ];
-//   download.forEach((element) => {
-//     // (async () => {
-//     //   console.log(await GitDownloadSave(element));
-//     // })();
-//     GitDownloadSave(element);
-//   });
-// };
+  sbotics.file("W32.json", (err, resp) => {
+    if (err) return console.log(err);
+    const JSONDownload = JSON.parse(resp.file);
+    JSONDownloadSize = JSONDownload["data"].length;
+    JSONDownload["data"].forEach((element) => {
+      (async () => {
+        await GitDownloadSave(element.path, element.name, "W32/");
+      })();
+    });
+  });
+};
 
-// sBoticsDownload();
+sBoticsDownload();

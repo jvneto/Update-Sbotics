@@ -7,9 +7,10 @@
   },
   "repository": "https://github.com/jvneto/Update-Sbotics.git",
   "author": "Julio Cesar <60150667+jvneto@users.noreply.github.com>",
-  "license": "MIT",
+  "license": "GNU GPLv3",
   "dependencies": {
     "electron": "^12.0.7",
+    "extend-shallow": "^3.0.2",
     "fs-extra": "^10.0.0",
     "github-content": "^1.0.1",
     "sbotics-downloader": "^1.1.2"
