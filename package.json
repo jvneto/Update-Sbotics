@@ -13,6 +13,7 @@
     "extend-shallow": "^3.0.2",
     "fs-extra": "^10.0.0",
     "github-content": "^1.0.1",
-    "sbotics-downloader": "^1.1.2"
+    "sbotics-downloader": "^1.1.2",
+    "sbotics-saver": "^1.0.5"
   }
 }

@@ -28,7 +28,6 @@
     ></script>
   </head>
   <body>
-    
     <h1 style="color: black; font-size: 15px">
       Tudo Ok - <span id="version"></span>
     </h1>
@@ -42,14 +41,8 @@
       </div>
       <h4 id="TextProgressBar"></h4>
     </div>
-<script type="module" src="./class/__DownloadSbotics.js"></script>
-    <script type="module" src="./utils/ProgressBar.js"></script>
-    <script>
-      function ResetProgressBar() {
-        document.getElementById("ProgreesBar").innerHTML = "";
-      }
-    </script>
 
+    <script type="module" src="./class/__DownloadSbotics.js"></script>
     <script>
       var version = localStorage.getItem("version");
       const oldVersion = 150;

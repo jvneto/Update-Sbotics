@@ -1,15 +1,16 @@
 var sBoticsDownloader = require("sbotics-downloader");
-const homeDir = require("os").homedir();
 import {
   SizeCreate,
   Create,
   Update,
   PercentageView,
 } from "../utils/ProgressBar.js";
+import Save from "../utils/SaveFiles.js";
 
 var JSONDownloadSize = 0;
 var JSONDownloadID = 1;
 var JSONDonwloadID_ = 0;
+
 const sbotics = new sBoticsDownloader({
   user: "sBotics",
   repository: "sBoticsBuilds",
@@ -23,13 +24,26 @@ const GitDownloadSave = async (path, name, prefix) => {
 
   await sbotics.file(pathDownload, { savePath: path + name }, (err, resp) => {
     JSONDonwloadID_ = JSONDownloadID++;
-    Create(
-      SizeCreate(JSONDownloadSize),
-      "warning",
-      JSONDownloadSize,
-      JSONDonwloadID_
-    );
+
     if (err) return Update(JSONDonwloadID_, "danger");
+
+    Save(resp.path, resp.file)
+      .then((value) => {
+        Create(
+          SizeCreate(JSONDownloadSize),
+          "success",
+          JSONDownloadSize,
+          JSONDonwloadID_
+        );
+      })
+      .catch((e) => {
+        Create(
+          SizeCreate(JSONDownloadSize),
+          "danger",
+          JSONDownloadSize,
+          JSONDonwloadID_
+        );
+      });
 
     PercentageView(
       {
@@ -38,8 +52,6 @@ const GitDownloadSave = async (path, name, prefix) => {
       },
       { elementView: true, elementInner: "TextProgressBar" }
     );
-
-    Update(JSONDonwloadID_, "success");
   });
 };
 

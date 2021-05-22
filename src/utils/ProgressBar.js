@@ -11,10 +11,13 @@ const Create = (percentage, state, limit, id = "") => {
 };
 
 const Update = (id, state) => {
-  setTimeout(() => {
-    document.getElementById(id).classList.remove(`bg-warning`);
+  // setTimeout(() => {
+  //   document.getElementById(id).classList.remove(`bg-warning`);
+  //   document.getElementById(id).classList.add(`bg-${state}`);
+  // }, 300);
+  console.log(id);
+   document.getElementById(id).classList.remove(`bg-warning`);
     document.getElementById(id).classList.add(`bg-${state}`);
-  }, 300);
 };
 
 const Reset = (options) => {
